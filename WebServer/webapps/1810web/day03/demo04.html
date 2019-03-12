@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+		<style type="text/css">
+			.c1{
+				background-color: green;
+			}
+			input{
+				background-color: pink;
+			}
+			input[type='submit']{
+				color:yellow;
+			}
+			#d2{
+				color:red;
+			}
+			span,.c1,input{
+			   /* 边框:粗细  样式    颜色 */
+				border:2px solid blue;
+			}
+		</style>
+	</head>
+	<body>
+		<div>div1</div><div class="c1">div2</div><div>div3</div>
+		<span id="d2">span1</span><span class="c1" id="d2">span2</span>
+		<h3>h31</h3><h3 class="c1" style="color:red">h32</h3>
+		<input type="submit"><input type="reset">
+		
+		<!-- 通过刚才所讲的选择器
+		修改:div2 span2和h32的背景色为绿色，修改h32的字体颜色为红色
+		修改提交按钮和重置按钮的背景色为粉色
+		修改提交按钮的字体色为黄色
+		修改两个span的字体颜色为红色 -->
+	</body>
+</html>

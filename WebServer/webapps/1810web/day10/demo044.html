@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+		<style type="text/css">
+		div,img{
+			width:200px;
+			height:150px;
+		}
+		div{
+			position: relative;
+			overflow: hidden;
+		}
+		img{
+			position:absolute; 
+		}
+		</style>
+		<script type="text/javascript">
+			//初始化页面时显示三张图片
+			onload = function(){
+				var arr = document.getElementsByTagName("img");
+				for(var i=0;i<arr.length;i++){
+					arr[i].style.left = i*200+"px";
+				}
+			}
+			//定时器
+			function changeImg(){
+				//开启定时器移动图片
+			var movetimer = setInterval(function(){
+				//所得到的图片
+				var arr = document.getElementsByTagName("img");
+				for(var i=0;i<arr.length;i++){
+					//得到原来的left值
+					var oldleft = arr[i].style.left;
+					//让原来的值-2得到新的left值
+					var newleft = parseInt(oldleft)-2;
+					if(newleft<=-200){
+						newleft = 400;
+						clearInterval(movetimer);
+					}
+					arr[i].style.left = newleft+"px";
+				}
+			},10);
+		}
+			//开启定时器每两秒钟执行一次换图片的方法
+			var timer = setInterval(changeImg,2000);
+			
+			//关闭定时器
+			function infn(){
+				clearInterval(timer);
+			}
+			//开启定时器
+			function outfn(){
+				timer = setInterval(changeImg,2000);
+			}
+		</script>
+	</head>
+	<body>
+		<div onmouseover="infn()" onmouseout="outfn()">
+			<img src="../imgs/1.jpg">
+			<img src="../imgs/d.jpg">
+			<img src="../imgs/j.jpg">
+		</div>
+	</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

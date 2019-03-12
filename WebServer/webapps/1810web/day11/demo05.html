@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<!-- 键盘时间 -->
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+		<script type="text/javascript">
+			function downfn() {
+				//得到按键编码
+				console.log("键盘按下:"+event.keyCode);
+				console.log("按下字母:"+String.fromCharCode(event.keyCode));
+				if (event.keyCode==13) {
+					btn.onclick();
+				}
+			}
+			function upfn() {
+				console.log("键盘抬起");
+			}
+			 onload = function() {
+				mybtn.onclick = function() {
+					alert(this);
+					//动态绑定：this代表事件源
+					//把按钮自身删除
+					document.body.removeChild(this);
+				}
+			} 
+			function fn() {
+				//非动态绑定事件中this代表的是window
+				alert(this);
+			}
+		</script>
+	</head>
+	<body>
+		<input type="button" value="abc" onclick="fn()">
+		<input id="btn" type="button" value="点我试试" onclick="alert('试试就试试')">
+		<input type="text" id="il" onkeydown="downfn()" onkeyup="upfn()">
+		<input type="button" value="我是按钮" id="mybtn">
+		
+	</body>
+</html>

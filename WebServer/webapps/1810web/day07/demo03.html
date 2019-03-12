@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+		<script type="text/javascript">
+			/* 无参无返回值 */
+			function fn1(){
+				//alert("fn1执行了！");
+			}
+			//方法调用
+			//fn1();
+			/* 有参无返回值 */
+			function fn2(age,name){
+				//alert("name:"+name+" age:"+age);
+			}
+			fn2("礼拜",18);
+			/* 有参有返回值 */
+			function fn3(num1,num2){
+				return num1*num2;	
+			}
+			var result=fn3(5,5);
+			//alert(result);
+			/* 无参有返回值 */
+			function fn4(){
+				return "abc";
+			}
+			//alert(fn4());
+			
+			var fn5=function(){
+				alert("fn5调用了");
+			}
+			//fn5();
+			var fn6 = new Function("a","b","return a*b");
+			alert(fn6(4,6));
+		</script>
+	</head>
+	<body>
+		<input type="button" value="按钮"
+		onclick="fn1()">
+		
+	</body>
+</html>

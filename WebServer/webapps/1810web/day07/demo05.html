@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<!-- 输入一个数字点击平方求值 -->
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+		<script type="text/javascript">
+			function sss(num){
+				var n=document.getElementById("l1");
+				var div=document.getElementById("d1");
+				//判断输入的是否是一个数值
+				if(isNaN(n.value)){//不是一个数值
+					div.innerText = "输入错误！";
+				}else{//是一个数值
+					div.innerText = n.value*n.value;
+				}
+
+			}
+		</script>
+	</head>
+	<body>
+		<input type="text" id="l1">
+		<input type="button" value="平方" onclick="sss()">
+		<div id="d1"></div>
+	</body>
+</html>

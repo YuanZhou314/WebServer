@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<!-- 购物车选框 -->
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+	</head>
+	<body>
+		<h3>购物车</h3>
+		<input type="checkbox" value="25">鼠标25元<br>
+		<input type="checkbox" value="998">苹果手机998元<br>
+		<input type="checkbox" value="80">宝马7系80元<br>
+		<input type="checkbox">全选<br>
+		<p>总价：0元</p>
+		
+		
+		<script type="text/javascript" src="../js/jquery-1.4.2.min.js"></script>
+		<script type="text/javascript">
+			$(function(){
+				$("input:last").click(function(){
+					//alert("xxx");
+					//得到全选的当前状态
+					var state = $(this).attr("checked");
+					$(this).siblings("input").attr("checked",state);
+				})
+				//如果元素重复添加事件，则事件全部响应
+				$("input").click(function(){
+					//统计总钱数的变量
+					var total = 0;
+					$("input[value]").each(function(){
+						if (this.checked) {
+							total += parseFloat(this.value);
+						}
+					})
+					$("p").text("总价："+total+"元");
+				})
+			})
+		</script>
+	</body>
+</html>

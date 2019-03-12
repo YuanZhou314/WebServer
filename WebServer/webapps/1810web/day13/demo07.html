@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<!-- 下雪练习 -->
+<!-- 
+1. 创建demo07 让body背景色为黑色 
+2. 开启定时器 在定时器里面 得到屏幕的宽和高
+3. 创建雪花img 对象
+4. 得到一个20-40的随机数作为雪花的尺寸
+5. 得到一个0-屏幕宽度的随机数作为雪花出现的left的值
+6. 通过设置css设置雪花图片的宽高，和left值 ，定位方式为固定定位
+7. 把雪花图片添加到body里面
+8. 得到一个3000-8000的随机数 为动画持续时间
+9. 给雪花设置一个移动动画 设置top值为屏幕高度-雪花尺寸，移动动画结束后做淡出动画,动画做完把图片删除 -->
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+		<style type="text/css">
+			body{
+				margin:0;
+				background-color: black;
+			}
+		</style>
+	</head>
+	<body>
+		<script type="text/javascript" src="../js/jquery-1.4.2.min.js"></script>
+		<script type="text/javascript">
+			$(function(){
+				setInterval(function(){
+					//获取屏幕宽高
+					var width = document.body.clientWidth;
+					var height = document.body.parentElement.clientHeight;
+					//创建img对象
+					var img = $("<img src='snow.png'>");
+					var size = parseInt(Math.random()*21)+20;
+					var left = parseInt(Math.random()*(width-size));
+					
+					img.css({"width":size+"px","height":size+"px","position":"absolute","left":left+"px","top":-size});
+					$("body").append(img);
+					
+					//得到3000-8000的随机数
+					var time = parseInt(Math.random()*5000)+3000;
+					img.animate({"top":height-size},time)
+					.fadeOut(2000,function(){
+						$(this).remove();
+					});
+				},10)
+				
+				
+			})
+		</script>
+	</body>
+</html>

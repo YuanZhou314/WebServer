@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+	</head>
+	<body>
+	<input type="button" value="按钮" id="b1">
+		<div id="big">
+			<div id="d1">div1</div>
+			<div id="d2">div2</div>
+			<div id="d3">div3</div>
+		</div>
+		
+		<script type="text/javascript" src="../js/jquery-1.4.2.min.js"></script>
+		<script type="text/javascript">
+			$(function(){
+				$("#b1").click(function(){
+					//创建元素
+					var myh1 = $("<h1>我是一个h1</h>");
+					//添加
+					//$("#big").append(myh1);
+					//插入元素
+					//$("#d2").before(myh1);
+					  $("#d2").after(myh1);
+					  //删除元素
+					  $("#d3").remove();
+				})
+			})
+		</script>
+	</body>
+</html>

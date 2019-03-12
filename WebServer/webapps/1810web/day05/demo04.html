@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+		<style type="text/css">
+			div{
+				width:253px;
+				/* 如果不设置高度则高度自动识别内容高度 */
+				background-color: rgba(0,0,0,0.3);
+				padding:10px;
+				position:relative;/* 做位置参考 */
+			}
+			input{
+				width:213px;
+				height:15px;
+				border:0;/* 去掉文本框自带的边框 */
+				padding:10px 20px;/* 内边距 */
+			}
+			p{
+				color:red;
+				font-size: 12px;
+				margin:0px 0 0 0 ;
+			}
+			img{
+				position: absolute;
+				top:14px;
+				right:20px;
+			}
+		</style>
+	</head>
+	<body>
+		<div>
+			<input type="text" placeholder="请输入您的用户名">
+			<p>用户名不能为空</p>
+			<img src="../images/login/yhm.png">
+		</div>
+	</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+		<style type="text/css">
+		#d1{
+			width:500px;
+			height:500px;
+			/* 修改背景图片 */
+			background-color: pink;
+			background-image: url("../imgs/k.jpg");
+			/* 修改背景图片尺寸 */
+			background-size: 200px 200px;
+			/* 禁止重复 */
+			background-repeat: no-repeat;
+			/* 修改图片位置  水平方向  (left center right)
+			垂直方向 (top cneter bottom)  可以控制9个位置*/
+			background-position: right bottom;
+			/* 通过百分比控制位置
+			第一个0代表最左边 100%代表最右边
+			第二个0代表最上面 100%代表最下面 */
+			background-position: 50% 30%;
+		}
+		#s1{
+			background-color: blue;
+			/* 行内元素不能修改宽高 */
+			width:500px;
+			height:500px;
+		}
+		</style>
+	</head>
+	<body>
+		<span id="s1">s1</span><span>s2</span>
+		<div id="d1"></div>
+	</body>
+</html>

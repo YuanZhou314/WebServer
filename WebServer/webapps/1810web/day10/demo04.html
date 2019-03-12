@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+		<style type="text/css">
+			div,img{
+				width:200px;
+				height:150px;
+			}
+			div{
+				position: relative;/* 做位置参考 */
+				overflow: hidden;/* 超出范围不显示 */
+			}
+			img{
+				position:absolute;
+			}
+		</style>
+		
+		<script type="text/javascript">
+		//页面加载完成时初始化图片的位置
+			onload = function(){
+			//得到所有的图片
+				var arr = document.getElementsByTagName("img");
+			//遍历图片
+				for(var i=0;i<arr.length;i++){
+					//修改图片相对于div的位置
+					arr[i].style.left = i*200+"px";
+				}
+			}
+		
+	
+		function changeImg(){
+			//开启定时器移动图片
+			var movetimer = setInterval(function(){
+				//得到所有的图片
+				var arr = document.getElementsByTagName("img");
+				for(var i=0;i<arr.length;i++){
+					//得到原来的left值
+					var oldleft = arr[i].style.left;
+					//让原来的值-2得到新的left值
+					var newleft = parseInt(oldleft)-2;
+				 	if(newleft<=-200){
+						newleft = 400;
+						clearInterval(movetimer);
+					} 
+					//把新的值赋给图片
+					arr[i].style.left = newleft+"px";
+				}
+			},10);
+		}
+		//开启定时器每个两秒钟条用换图片的方法
+		var timer = setInterval(changeImg,2000);
+		
+		function infn(){
+			//关闭定时器
+			clearInterval(timer);
+		}
+		function outfn(){
+			//开启定时器
+			timer = setInterval(changeImg,2000);
+		}
+		</script>
+	</head>
+	<body>
+		<div onmouseover="infn()" onmouseout="outfn()">
+			<img src="../imgs/1.jpg">
+			<img src="../imgs/d.jpg">
+			<img src="../imgs/j.jpg">
+		</div>
+	</body>
+</html>
+
+
+
+

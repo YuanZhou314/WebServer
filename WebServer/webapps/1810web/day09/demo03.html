@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+		<script type="text/javascript">
+			function gofn(){
+				var reg = /^http/i;
+				if(reg.test(i1.value)){
+					location.href = i1.value;
+				}else{
+					location.href = "http://"+i1.value;
+				}	
+			}
+		</script>
+	</head>
+	<body>
+		<input type="text" id="i1">
+		<input type="button" value="Go" onclick="gofn()">
+	</body>
+</html>

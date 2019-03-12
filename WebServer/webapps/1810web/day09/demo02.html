@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+		<script type="text/javascript">
+			//创建一个Person对象，有age和name属性
+			function Person(name,age){
+				//声明属性并赋值
+				this.name=name;
+				this.age=age;
+				//声明方法
+				this.run = function(){
+					alert("name:"+name+" age:"+age);
+				}
+			}
+			//实例化对象
+			var p = new Person("刘德华",8);
+			p.run();
+			
+			 //创建学生对象 name属性 和语数外属性
+			function Student(name,chinese,math,english){
+				this.name=name;
+				this.chinese=chinese;
+				this.math=math;
+				this.english=english;
+				this.study = function(){
+					alert("name:"+name+" chinese:"+chinese+" math:"+math+" english:"+english);
+				}
+			}
+			//创建学生实例
+			var s = new Student("周莹林",80,90,100);
+			s.study(); 
+			
+			//创建医生实例
+			function Doctor(name,age,time,address){
+				this.name=name;
+				this.age=age;
+				this.time=time;
+				this.address=address;
+				this.pepole = function(){
+					alert("name:"+name+" age:"+age+" time:"+time+" address:"+address);
+				}
+			}
+			//创建医生实例
+			var d = new Doctor("张三",30,5,"南昌市")
+				d.pepole();
+     
+       		//创建空的对象
+			function SuperMan(){}
+			var sMan = new SuperMan();
+			//创建对象之后添加属性和方法
+			sMan.name="克拉克";
+			sMan.fly=function(){
+				alert("我叫:"+this.name+" 我在打飞ji！！");
+			}
+			//调用对象的方法
+			sMan.fly();
+ /* ******************************************************************************** */
+ 			var p = {
+		 		"name":"关羽",
+ 				"age":18,
+ 				"run":function(){
+ 					alert("姓名："+this.name+" 年龄："+this.age);
+ 				}
+ }
+ 			p.run();
+		</script>
+	</head>
+	<body>
+		
+	</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

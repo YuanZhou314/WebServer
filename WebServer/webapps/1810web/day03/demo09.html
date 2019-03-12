@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+		<style type="text/css">
+			#d1{
+				width:300px;
+				height:300px;
+				background-color: pink;
+				/* 上外边距 */
+				/* 会计元素相邻元素添加外边距取最大值
+				   行内元素累加 */
+				margin-top: 50px;
+				/* 左外边距 */
+				margin-left: 50px;
+				margin-bottom: 20px;
+				margin: 10px 20px 30px 40px;/* 上右下左 顺时针 */
+			
+			}
+			
+			#d2{
+				width=100px;
+				height=100px;
+				background-color:green; 
+				/*margin:20px 40px;*/ /* 上下20，左右40 */
+				margin: 0 auto;/* 水平居中 */
+			}
+			body{
+				border:1px solid red;
+			}
+			span{
+				border:1px solid red;
+			}
+			#s1{
+				margin-left: 20px;
+				margin-right: 10px;
+				margin-top: 50px;
+				
+			}
+			#s2{
+				margin-left: 10px;
+				margin-bottom: 50px;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="d1"></div>
+		<div id="d2">改革春风吹满地</div>
+		<span id="s1">span1</span><span id="s2">sapn2</span>
+	</body>
+</html>

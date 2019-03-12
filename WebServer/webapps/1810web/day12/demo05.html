@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+	</head>
+	<body>
+		<input type="text">
+		<input type="button" value="添加">
+		<input type="button" value="插入">
+		<input type="button" value="删除">
+		<ul>
+			<li>北京</li>
+			<li>上海</li>
+			<li>广州</li>
+		</ul>
+		<script type="text/javascript" src="../js/jquery-1.4.2.min.js"></script>
+		<script type="text/javascript">
+			$(function fn() {
+				$("input[type='button']").click(function() {
+					if (this.value=="添加") {
+						var li = $("<li></li>");
+						li.text($("input:first").val());
+						//添加到ul里
+						$("ul").append(li);
+						
+					}else if (this.value=="插入") {
+						var li = $("<li></li>");
+						li.text($("input:first").val());
+						$("li:contains('上海')").before(li);
+						
+					}else {//删除
+						$("li:contains('上海')").remove();
+					}
+				})
+			})
+		</script>
+	</body>
+</html>
+
+
+
+
+

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+		<script type="text/javascript">
+		var time = 0;
+		onload = function(){
+			var d = new Date();
+			time_h1.innerText = d.toLocaleTimeString();
+		}
+		setInterval(function(){
+			var d = new Date();
+			time_h1.innerText = d.toLocaleTimeString();
+		},1000);
+		
+		function myfn(){
+			time = parseInt(i1.value);
+			time_h2.innerText = parseTimeString(time);
+			setInterval(function(){
+				time--;
+				if(time ==0){
+					time_h2.innerText = parseTimeString(time);
+				}
+			},1000);
+		}
+		
+		function parseTimeString(time){
+			var h = parseInt(time/3600);
+			var x = time%3600;
+			var m = parseInt(time/60);
+			var s = time%60;
+			return h+":"+m+":"+s;
+		}
+		</script>
+	</head>
+	<body>
+		<input type="text" id="i1">
+		<input id="btn" type = "button" value = "倒计时" onclick="myfn()">
+		<hr>
+		<h1 id=time_h2></h1>
+		<h1 id=time_h1></h1>
+	</body>
+</html>

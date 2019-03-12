@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<!-- 九宫格练习 -->
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+		<style type="text/css">
+			#big{
+				width:300px;
+				height:300px;
+				border:1px solid red;
+				overflow: hidden;
+			}
+			.green{
+				width:100px;
+				height:100px;
+				background-color: green;
+				float:left
+			}
+			.pink{
+				width:100px;
+				height:100px;
+				background-color: pink;
+				float:left
+			}
+		</style>
+		<script type="text/javascript">
+			function addfn(){
+				var div = document.getElementById("big");
+				for(var i = 0;i<9;i++){
+					var color = i%2==0?"pink":"green";
+					div.innerHTML += "<div class='"+color+"'></div>";
+				}
+			}
+		</script>
+	</head>
+	<body>
+	<input type="button" value="添加" onclick="addfn()">
+		<div id="big"></div>
+	</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

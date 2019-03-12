@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+		<script type="text/javascript">
+			var arr = [23,43,64,12,34,87,53,26];
+			/* 创建一个自定义排序方法 */
+			function sortfn(a,b){
+				return a-b;//升序
+				//return b-a;降序
+			}
+			/* 使用自定义方法排序，如果数组中装的是自定义对象，则可以通过对象的任意属性点出进行排序，比较灵活 */
+			arr.sort(sortfn);/* 讲方法作为参数传入sort方法，所以不加括号 */
+		</script>
+	</head>
+	<body>
+	
+	</body>
+</html>

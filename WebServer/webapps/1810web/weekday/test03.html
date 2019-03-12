@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+		<style type="text/css">
+			
+		</style>
+	</head>
+	<body>
+		<div id="d1">div1</div>
+		<div id="d2">div2
+			<div id="d22">div22</div>
+		</div>
+		<hr>
+		<input type="text" id="i1">
+		<input type="button" value="js转jq" id="b1">
+		<input type="button" value="jq转js" id="b2">
+		
+		<script type="text/javascript" src="../js/jquery-1.4.2.min.js"></script>
+		<script type="text/javascript">
+		$(function(){
+			//js转jq
+			$("#b1").click(function(){
+				var js = document.getElementById("i1");
+				var jq = $(js);
+				alert(jq.val());
+			})
+			
+			//jq转js
+			$("#b2").click(function(){
+				var $jq = $("#i1");
+				var js = $jq[0];
+				alert(js.value+":"+jq.val());
+			})
+			
+		})
+		
+		
+		/* //删除元素
+		$(function(){
+			$("#d22").remove();
+		}) */
+		
+		
+		//DOM对象
+		/*$(function(){
+			//添加元素
+			 var jq = $("<div>我要吃饭饭</div>");
+			$("#d22").append(jq); */
+			/* //插入元素
+			var ad = $("<div>我要加在d1的前面</div>");
+			$("#d1").before(ad);
+			$("#d1").after(ad); */
+	
+		
+		//获取修改html
+		/* $(function(){
+			var html = $("#d1").html();
+			alert(html);
+			$("#d1").html("<p>你好呀</p>");
+		}) */
+		
+		
+		/*//获取和修改文本
+			$(function(){
+			var text = $("#d2").text();
+			alert(text);
+			$("#d2").text("这是div8989");
+		}) */
+		
+		/* //jq获取color
+		$(function(){
+			var color = $("#d1").css("color");
+			alert(color);
+		}) */
+
+			/* //jq设置color
+			$(function(){
+				$("#d1").css({"width":"100px","height":"100px","background-color":"red","color":"yellow"});
+			})  */
+		</script>
+	</body>
+</html>

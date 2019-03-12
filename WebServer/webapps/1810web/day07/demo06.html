@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<!-- 两个输入框 右边+-*/四个按钮计算器 -->
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+		<script type="text/javascript">
+			function myfn(x){
+				var n1 = document.getElementById("l1");
+				var n2 = document.getElementById("l2");
+				var div = document.getElementById("d1");
+				var n1 = parseFloat(l1.value);
+				var n2 = parseFloat(l2.value);
+				var result = 0;
+				switch(x){
+				case 1:
+					result = n1+n2;
+					break;
+				case 2:
+					result = n1-n2;
+					break;
+				case 3:
+					result = n1*n2;
+					break;
+				case 4:
+					result = n1/n2;
+					break;
+				}
+				div.innerText = result;
+			}
+				/* if(isNaN(n1.value)||isNaN(n2.value)){
+					div.innerText = "输入错误";
+				}else{
+					div.innerText = parseInt(n1.value)+parseInt(n2.value);
+				} */
+			
+		</script>
+	</head>
+	<body>
+		<input type="text" id="l1">
+		<input type="text" id="l2">
+		<input type="button" value="+" onclick="myfn(1)">
+		<input type="button" value="-" onclick="myfn(2)">
+		<input type="button" value="*" onclick="myfn(3)">
+		<input type="button" value="/" onclick="myfn(4)">
+		<div id="d1"></div>
+	</body>
+</html>

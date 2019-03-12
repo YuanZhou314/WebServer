@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+		<style type="text/css">
+			 table{
+				border:1px solid red;
+				margin:0 auto;
+				width:60%;
+				/* 合并边框 */
+				border-collapse: collapse;
+				text-align: center;
+			}
+			h3{
+				text-align: center;
+			} 
+			th,td{
+				border:1px solid red;
+				
+			}
+		</style>
+		
+		
+	</head>
+	<body>
+		<h3>特价商品</h3>
+		<table>
+			<tr>
+				<th>商品名称</th><th>单价(元)</th>
+				<th>库存</th><th>好评率</th>
+				<th>操作</th>
+			</tr>
+			<tr>
+				<td></td><td>4</td>
+				<td>2000</td><td>98%</td>
+				<td><input type="button" value="加入购物车"></td>
+			</tr>
+			<tr>
+				<td>脉动</td><td>4</td>
+				<td>2000</td><td>98%</td>
+				<td><input type="button" value="加入购物车"></td>
+			</tr>
+			<tr>
+				<td>脉动</td><td>4</td>
+				<td>2000</td><td>98%</td>
+				<td><input type="button" value="加入购物车"></td>
+			</tr>
+		</table>
+		<h3>购物车</h3>
+			<table>
+				<tr>
+					<td>商品名称</td><td>单价(元)</td>
+					<td>数量</td><td>金额</td>
+					<td>操作</td>
+				</tr>
+				<tr>
+					<td colspan="4" align="right">总价：0元</td>
+					<td id="total">0元</td>
+				</tr>
+			</table>
+			
+		<script type="text/javascript" src="../js/jquery-1.4.2.min.js"></script>
+		<script type="text/javascript">
+			$(function(){
+				$("input").click(function(){
+					//通过按钮得到td载得到所有的兄弟td再取第一个
+					var name = $(this).parent().siblings().eq(0).text();
+					var price = $(this).parent().siblings().eq(1).text();
+					var nametd = $("<td></td>");
+					var pricetd = $("<td></td>");
+					var numtd = $("<td><input type='button' value='-' onclick='numfn(-1)' ><span>1</span><input type='button' value='+' onclick='numfn(1)'></td>");
+					var moneytd = $("<td></td>");
+					var deltd = $("<td><input type='button' value='删除'></td>");
+					//删除按键
+					deltd.children().click(function(){
+						$(this).parent().parent().remove();
+						//调用计算方法
+						calfn();
+					})
+					//设置显示内容
+					nametd.text(name);
+					pricetd.text(price);
+					moneytd.text(price);
+					
+					//创建tr
+					var tr = $("<tr></tr>");
+					tr.append(nametd);
+					tr.append(pricetd);
+					tr.append(numtd);
+					tr.append(moneytd);
+					tr.append(deltd);
+					//插入到最后一栏总价的前面
+					$("#total").parent().before(tr);
+					//调用计算方法
+					calfn();
+				})
+			})
+			
+			//声明加减方法
+			function numfn(x) {
+				//得到事件源 通过事件源得到span兄弟
+				var obj = event.target||event.srcElement;
+				//然后取出内部的文本就是当前的数量
+				var num = parseInt($(obj).siblings("span").text());
+				//把当前数量和x进行加法计算
+				num+=x;
+				if (num<1) {
+					num=1;
+				}
+					//把更新后的数量显示回去
+					$(obj).siblings("span").text(num);
+					//得到单价
+					var price = $(obj).parent().siblings().eq(1).text();
+					//然后和数量相乘，赋值给金额td
+					$(obj).parent().siblings().eq(2).text(price*num);	
+					//调用计算方法
+					calfn();
+			}
+			//声明计算方法
+			function calfn(){
+				var total = 0;
+				//得到所有的tr 然后遍历
+				$("table:last tr").each(function(){
+					//得到每一行里面的金额，转成数值
+					//第一行是金额二字，转成NaN
+					//最后一行什么也没有也是转成NaN
+					var money = parseFloat($(this).children().eq(3).text());
+					//过滤掉第一行和最后一行
+					if (!isNaN(money)) {
+						total+=money;
+					}
+				})
+				$("#total").text(total+"元");
+			}
+		</script>
+	</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+

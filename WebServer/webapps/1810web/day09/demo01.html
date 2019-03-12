@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+		<style type="text/css">
+			span{
+				display:none; /*隐藏元素 会脱离文档流 */
+				/* visibility:hidden; */ /*隐藏元素  不脱离文档流*/
+			}
+			.ok{/* 正确样式 */
+				display:none;
+			}
+			.err{/* 错误样式 */
+				display:inline;
+				color:red;
+				font-size: 12px;
+			}
+		</style>
+		<script type="text/javascript">
+			function checkun(){
+				//创建正则，得到用户名判断
+					var reg = /^\w{6,10}$/;
+					s1.className = reg.test(i1.value)?"ok":"err";
+					return reg.test(i1.value);
+			}
+				function checkpw(){
+					//创建正则，得到用户名判断
+					//如果正确则s1的class为ok 否则为err
+					var reg = /^\w{6,10}$/;
+					s2.className = reg.test(i2.value)?"ok":"err";
+					return reg.test(i2.value);
+			}
+		</script>
+	</head>
+	<body>
+		<form action="http://www.tmooc.cn" onsubmit="return checkun()+checkpw()==2">
+			用户名：<input type="text" id="i1" onblur="checkun()">
+			<span id="s1">用户名格式错误</span><br>
+			密码：<input type="text" id="i2" onblur="checkpw()">
+			<span id="s2">请密码格式错误</span><br>
+			<input type="submit" value="注册">
+		</form>
+	</body>
+</html>
+
+
+
+
+
+
+
+
+

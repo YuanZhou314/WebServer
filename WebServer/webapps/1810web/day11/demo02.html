@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+		<style type="text/css">
+			
+		</style>
+		
+		
+		<script type="text/javascript">
+			onload = function(){
+				var arr = document.getElementsByClassName("c1");
+				for(var i=0;i<arr.length;i++){
+					arr[i].style.display = "none";
+				}
+			}
+			
+			function myfn(li){
+				//得到li里面的ul 
+				var ul = li.getElementsByTagName("ul")[0];
+				//判断如果隐藏就显示，如果显示则隐藏
+				ul.style.display = ul.style.display=="none"?"block":"none";
+				var arr = document.getElementsByClassName("c1");
+				for(var i=0;i<arr.length;i++){
+					var u = arr[i];
+					//如果与点击的ul不相同，则关掉上一个点击的ul，
+					//其中遍历的所有u包含点击展开ul
+					if(u!=ul){
+						u.style.display="none";
+					}
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<ul>
+			<li id="i1" onclick="myfn(this)">工作好友
+				<ul class="c1">
+					<li>马云</li>
+					<li>马化腾</li>
+					<li>马冬梅</li>
+				</ul>
+			</li>
+			<li id="i2" onclick="myfn(this)">亲朋好友
+				<ul class="c1">
+					<li>习大大</li>
+					<li>老干妈</li>
+					<li>凤姐</li>
+				</ul>
+			</li>
+			<li id="i3" onclick="myfn(this)">前女友们
+				<ul class="c1">
+					<li>貂蝉</li>
+					<li>西施</li>
+					<li>苍老师</li>
+				</ul>
+			</li>
+		</ul>
+	</body>
+</html>

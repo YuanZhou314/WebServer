@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+		<style type="text/css">
+			body{
+				margin:0;
+				background-image: url("../zombimgs/bg1.jpg");
+				
+			}
+			img{
+				position: absolute;
+				width:80px;
+				hright:100px;
+			}
+			#success_h1{
+				float: left;
+				color: pink;
+				background-color: green;
+			}
+			#fail_h1{
+				float:right;
+				color: pink;
+				background-color: green;
+			}
+		</style>
+		
+		
+		<script type="text/javascript">
+			var failCont = 0;
+			var successCont = 0;
+			onload = function(){
+				changeBG();
+			}
+			
+			onresize = function(){
+				changeBG();
+			}
+				function changeBG(){
+						var w = document.body.clientWidth;
+						var h = document.body.parentElement.clientHeight;
+						//修改背景图片的尺寸 跟随窗口移动
+						document.body.style.backgroundSize = w+"px "+h+"px";
+				}
+				
+			//创建添加僵尸的定时器
+			var move = setInterval(function(){
+				//得到屏幕的宽高
+				var w = document.body.clientWidth;
+				var h = document.body.parentElement.clientHeight;
+				//创建僵尸图片
+				var img = document.createElement("img");
+				//让僵尸的图片和被干掉的数量建立关系
+				var type = parseInt(successCont/20);
+				//如果大于3则等于3
+				type = type>3?3:type;
+				
+				//给图片元素设置图片路径
+				img.src = "../zombimgs/zomb"+type+".png";
+				//设置僵尸的位置
+				img.style.left = w+"px";
+				img.style.top = parseInt(Math.random()*(h-100))+"px";
+				
+				//给僵尸图片添加鼠标事件
+				img.onmouseover = function() {
+					//删除僵尸
+					document.body.removeChild(img);
+					successCont++;
+					success_h1.innerText="成功次数："+successCont;
+				}
+				document.body.appendChild(img);
+			},100);
+			
+			//开启定时器移动僵尸
+			setInterval(function(){
+				//得到所有的僵尸
+				var arr = document.getElementsByTagName("img");
+				for(var i=0;i<arr.length;i++){
+					//原来的left值
+					var oldleft = arr[i].style.left;
+					var newleft = parseInt(oldleft)-(2+parseInt(successCont/50));
+					
+					//赋值回去
+					arr[i].style.left = newleft+"px";
+					//判断如果移动到房子的位置删除僵尸图片
+					if (newleft<=0) {
+						//删除僵尸
+						document.body.removeChild(arr[i]);
+						//统计失败次数
+						failCont++;
+						fail_h1.innerText = "漏点次数："+failCont;
+						if (failCont==100) {
+							alert("GameOver!");
+							clearInterval(move);
+							
+						}
+						
+					}
+				}
+			},10);
+			
+		</script>
+	</head>
+	<body>
+		<h1 id="success_h1">成功次数：0</h1>
+		<h1 id="fail_h1">漏点次数：0</h1>
+	</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

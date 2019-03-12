@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<!-- 省市联动JQuery版 -->
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+	</head>
+	<body>
+		<select>
+			<option>请选择</option>
+			<option value="0">河北</option>
+			<option value="1">山西</option>
+			<option value="2">山东</option>
+		</select>
+		<select>
+			<option>请选择</option>
+		</select>
+		
+		<script type="text/javascript" src="../js/jquery-1.4.2.min.js"></script>
+		<script type="text/javascript">
+		//创建二维数组，放入各省份所属城市
+		var arr = [["唐山","秦皇岛","石家庄"],
+		           ["大同","太原","运城"],
+		           ["青岛","济南","烟台"]];
+		//动态绑定，写在页面加载事件中，注意后面加分号
+		$(function(){
+			$("select:first").change(function(){
+				//清空
+				$("select:last").html("<option>请选择</option>");
+				var cities = arr[$("select:first").val()];
+				for (var i=0;i<cities.length;i++) {
+					var opt = $("<option></option>");
+					opt.text(cities[i]);
+					$("select:last").append(opt);
+				}
+			})
+		});
+		</script>
+	</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+

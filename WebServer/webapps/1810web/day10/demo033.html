@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+		<style type="text/css">
+			div,img{
+				width:200px;
+				height:150px;
+			}
+			img{
+				display: none;
+			}
+		</style>
+		
+		
+	</head>
+	<body>
+		<div>
+			<img src="../imgs/1.jpg">
+			<img src="../imgs/a.jpg">
+			<img src="../imgs/j.jpg">
+		</div>
+		<script type="text/javascript">
+			//自增变量x
+			var x = 0;
+			//开启定时器
+			setInterval(function(){
+				//得到显示的下标
+				var visibleIndex = x++%3;
+				//得到装着所有图片的数组
+				var arr = document.getElementsByTagName("img");
+				//遍历每张图片
+				for(var i=0;i<arr.length;i++){
+					arr[i].style.display=i==visibleIndex?"block":"none";
+				}
+					//判断如果i等于显示下标则显示，不等于则隐藏
+			},500);
+				
+
+		</script>
+	</body>
+</html>

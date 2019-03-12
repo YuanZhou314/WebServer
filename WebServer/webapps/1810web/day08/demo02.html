@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<!-- 按照输入的行列数添加方块练习 -->
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+		<style type="text/css">
+			#d1>div{
+				width:50px;
+				height:50px;
+				background-color: red;
+				margin:5px;
+				display: inline-block;
+				
+			}
+		</style>
+		
+		<script type="text/javascript">
+			function addfn(){
+				//部分浏览器会自动添加这行代码
+				/* var div = document.getElementById("d1");
+				var i1 = document.getElementById("i1");
+				var i2 = document.getElementById("i2"); */
+				//遍历行数
+				for(var j = 0;j<i1.value;j++){
+					//遍历每行的个数
+					for(var i = 0;i<i2.value;i++){
+						d1.innerHTML +="<div></div>";
+					}
+					//每行添加完后换行
+					d1.innerHTML+="<br>";
+				}
+				
+				
+			}
+		</script>
+	</head>
+	<body>
+		<input type="text" id="i1" placeholder="行数">
+		<input type="text" id="i2" placeholder="列数">
+		<input type="button" value="添加" onclick="addfn()">
+		
+		<div id="d1"></div>
+	</body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<!-- 鼠标事件 -->
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+		<style type="text/css">
+			div{
+				width:1200px;
+				height:1200px;
+				background-color: green;
+			}
+		</style>
+		<script type="text/javascript">
+			function downfn() {
+				//事件对象：event 对象内部保存着和事件有关的信息
+				//得到鼠标点击的坐标
+				console.log("鼠标按下 x:"+event.clientX+"y:"+event.clientY);
+				
+				var img = document.createElement("img");
+				img.src = "../zombimgs/zomb0.png";
+				img.style.position = "absolute";
+				img.style.left = event.clientX+"px";
+				img.style.top = event.clientY+"px";
+				document.body.appendChild(img);
+			}
+			function upfn() {
+				console.log("鼠标抬起");
+			}
+			function movefn() {
+				console.log("鼠标移动");
+				var img = document.createElement("img");
+				img.src = "../zombimgs/zomb0.png";
+				img.style.position = "absolute";
+				img.style.left = event.clientX+"px";
+				img.style.top = event.clientY+"px";
+				document.body.appendChild(img);
+			}
+		</script>
+	</head>
+	<body>
+		<div id="d1" onmousemove="movefn()" onmousedown="downfn()" onmouseup="upfn()"></div>
+	</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

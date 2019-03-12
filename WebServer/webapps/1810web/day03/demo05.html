@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<style type="text/css">
+		/* 后代选择器 */
+		#d2 p{
+			color:red;
+		}
+		#d1 div p{
+			background-color: green;
+		}
+		/* 子元素选择器 */
+		#d1>p{
+			border:5px solid purple
+		}
+		body>p{
+			border: 3px solid yellow
+		}
+	</style>
+	</head>
+	<body>
+		<div id="d1">
+			<p>p1</p>
+			<div>
+				<p>p2</p>
+			</div>
+		</div>
+		<div id="d2">
+			<p>p3</p>
+		</div>
+		<p>p4</p>
+	</body>
+</html>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+		<script type="text/javascript">
+			function cang(){
+				//得到文本框
+				var input = document.getElementById("li");
+				//alert(input.value);
+				var div = document.getElementById("d1");
+				div.innerText=input.value;
+			}
+		</script>
+	</head>
+	<body>
+		<input type="text" id="li">
+		<input type="button" value="按钮" onclick="cang()">
+		<div id="d1"></div>
+	</body>
+</html>

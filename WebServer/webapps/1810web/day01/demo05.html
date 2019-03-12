@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+	</head>
+	<body>
+	<!-- alt:如果图片不能正常显示时所显示的文本 -->
+	<!-- src:图片路径 
+		1.相对路径    访问站内资源使用相对路径
+			和页面在同一目录，直接写图片名
+			在页面的上级目录：../ng.jpg
+			在下级目录：abc/lx.jpg
+			
+		2.绝对路径    访问站外资源使用绝对路径
+		访问站外资源成为盗链，好处是不用占用自己网站的资源
+		坏处：目标网站路径发生改变，则找不到图片
+		
+		title:鼠标在图片上悬浮时显示的文本
+		width:设置图片的宽度    通过像素赋值  /  通过百分比赋值
+			若只修改宽度，高度会等比缩放
+		height:设置图片的高度
+		
+	-->
+		<img width="400" alt="有内鬼，加大力度" src="ng.jpg" title="这是带师兄的手机">
+		<img width="50%" alt="司马脸" src="../nmsl.jpg" title="这是司马脸">
+		<img alt="流星" src="abc/lx.gif">
+		<img alt="" src="https://gss3.bdstatic.com/-Po3dSag_xI4khGkpoWK1HF6hhy/baike/c0%3Dbaike80%2C5%2C5%2C80%2C26/sign=15dbf794a5773912d02b8d339970ed7d/d1a20cf431adcbef95d1cf2fa0af2edda3cc9f36.jpg">
+	</body>
+</html>

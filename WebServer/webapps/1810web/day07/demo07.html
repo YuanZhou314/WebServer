@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<!-- 两个按钮（红、蓝）按下哪个按钮就生成一块100px边长正方形 -->
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+		<style type="text/css">
+			.blue{
+				width:100px;
+				height:100px;
+				background-color: blue;
+			}
+			.red{
+				width:100px;
+				height:100px;
+				background-color: red;
+			}
+		</style>
+		
+		<script type="text/javascript">
+			function myfn(color){
+				var div = document.getElementById("d1");
+				/* +=的意思是把字符通过两个" 再加两个+拆开，把需要放进去的内容写在两个+之间 */
+				div.innerHTML += "<div class='"+color+"'></div>";
+			}
+		
+		</script>
+	</head>
+	<body>
+		<input type="button" value="蓝色" onclick="myfn('blue')">
+		<input type="button" value="红色" onclick="myfn('red')">
+		<div id ="d1"></div>
+	</body>
+</html>
